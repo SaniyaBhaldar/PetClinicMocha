@@ -26,7 +26,7 @@ exports.config = {
     onPrepare: async function () {
         await browser.driver.manage().window().maximize();
     },
-*
+
     mochaOpts: {
         reporter: 'mocha-allure-reporter',
         timeout: 100000

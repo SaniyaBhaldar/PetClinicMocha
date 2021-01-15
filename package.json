@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "pretest": "tsc",
-    "test": "protractor JSFiles/ProtractorConfig.js && allure generate allure-results --clean -o allure-report",
+    "test": "protractor JSFiles/ProtractorConfig.js",
     "prestart": "./node_modules/.bin/webdriver-manager update",
     "start": "./node_modules/.bin/webdriver-manager start",
     "protractor": "./node_modules/protractor/built/cli.js",

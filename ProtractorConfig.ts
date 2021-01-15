@@ -15,7 +15,9 @@ exports.config = {
 
 
     suites: {
-        mochaTest: ['./tests/home.js',
+        mochaTest: [
+            './tests/*.js'
+            //'./tests/home.js',
                    // './tests/onlineShop.js'
                 
                 ]

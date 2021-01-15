@@ -23,7 +23,8 @@ export class homePage {
     }
 
     async displayCartSymbol() {
-        return this.cartMenuSymbol;
+        var displayCartSymbol = await this.cartMenuSymbol.isDisplayed();
+        return displayCartSymbol;
     }
 
 }

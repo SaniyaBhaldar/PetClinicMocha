@@ -1,4 +1,4 @@
-import { browser } from "protractor";
+import { browser, by, element } from "protractor";
 import { onlineShopPage } from "../pageObjects/onlineShopPage";
 import { homePage } from "../pageObjects/homePage";
 
@@ -30,6 +30,19 @@ describe('Testing New Screen-Online Shop', function () {
 
     it('Verify title of online shop screen', async function () {
         expect(await onlineShop.getPageTitleText()).to.equal("Foods / Treats");
+    });
+
+    xit('Validate the rates of items displayed on Foods/Treats page', async function () {
+        let count = await browser.element(by.xpath("//*[@class='row']/div/div/div[2]")).all(by.tagName("p")).count();
+        console.log(count);
+        let prices: string[] = ['€635', '€318', '€923', '€318', '€63', '€320', '€912', '€318'];
+        for (let i = 1; i <= count; i++) {
+            let price = await element(by.xpath("//*[@class='row']/div[" + i + "]/div/div[2]/p")).getAttribute("innerText");
+            console.log(price);
+            expect(prices[i]).to.equal('price');
+            //expect(prices[i-1]).to.equal('price');
+        }
+       
     });
 
     xit('Validate the item names & rates are displayed in Foods', async function () {

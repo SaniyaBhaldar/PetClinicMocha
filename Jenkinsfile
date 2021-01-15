@@ -1,7 +1,7 @@
 pipeline {
 	environment {
-    		def APP_NAME = "petclinicmocha"
-    		def GIT_REPO_NAME = "prashanttathe"
+    		def APP_NAME = "PetClinicMocha"
+    		def GIT_REPO_NAME = "SaniyaBhaldar"
     		def DEPLOY_ENV = "dev"
 	}
     	agent { dockerfile true }

@@ -3,6 +3,8 @@ import { ElementFinder, element, by, ElementArrayFinder, browser } from "protrac
 export class homePage {
 
     private onlineShopMenu = element(by.css("[routerlink='/onlineShop']"));
+    private cartMenu=element(by.css("[href='/petclinic/cart']"));
+    private cartMenuSymbol=element(by.css("[alt='cart.png']"));
 
     async getPageTitle() {
         return await browser.getTitle();
@@ -18,6 +20,10 @@ export class homePage {
 
     clickOnlineShopMenu() {
         return this.onlineShopMenu.click();
+    }
+
+    async displayCartSymbol() {
+        return this.cartMenuSymbol;
     }
 
 }

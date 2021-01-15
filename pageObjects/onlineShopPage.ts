@@ -4,20 +4,11 @@ import { ElementFinder, element, by, ElementArrayFinder, browser, ExpectedCondit
 
 export class onlineShopPage {
 
-    private onlineShopMenu = element(by.css("[routerlink='/onlineShop']"));
-    private pageTitle = element(by.css(".container-fluid .xd-container h2"));
+    private pageTitle = element(by.css(".page .page-title"));
 
     async getPageTitleText() {
         return await this.pageTitle.getText();
     }
-
-    getTreatsTitleText(): any {
-        throw new Error("Method not implemented.");
-    }
-    getFoodTitleText(): any {
-        throw new Error("Method not implemented.");
-    }
-
     getFirstFoodItemTitleText(): any {
         throw new Error("Method not implemented.");
     }

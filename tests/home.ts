@@ -2,7 +2,6 @@ import { browser, ProtractorExpectedConditions, ExpectedConditions, by } from "p
 import { homePage } from "../pageObjects/homePage";
 import { describe, it } from 'mocha';
 import testdata from "../testData/userData";
-import { doesNotMatch } from "assert";
 
 const log = require("../logFile/logging").default;
 
@@ -35,15 +34,21 @@ describe('Verify user will able to navigate to Petclinic application', function 
 
 });
 
-describe('Verify user able to see menu on homepage', function () {
+describe('Verify user able to see shop online menu and cart symbol on homepage', function () {
 
     it('Should display menu labeled as SHOP ONLINE on petclinic homepage', async function () {
-        await expect(await home.getOnlineShopMenuText()).to.equal("ONLINE SHOP"); 
+        expect(await home.getOnlineShopMenuText()).to.equal("ONLINE SHOP"); 
+    });
+
+    it('Should display cart symbol on petclinic homepage', async function () {
+        expect(home.displayCartSymbol).to.equal(true);
     });
 
     afterEach(async function () {
+        if(this.currentTest.state !== "passed"){
         const png = await browser.takeScreenshot();
         allure.createAttachment('Screenshot', new Buffer(png, 'base64'), 'image/png');
+        }
     })
 
 });

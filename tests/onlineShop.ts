@@ -7,29 +7,29 @@ let onlineShop = new onlineShopPage();
 let home = new homePage();
 declare const allure: any;
 
-describe('Verify user is able to navigate to online shop page', function () {
+/*describe('Verify user is able to navigate to online shop page', function () {
 
     it('Should be able to navigate to online shop page', async function () {
         await home.clickOnlineShopMenu();
     });
 
     afterEach(async function () {
+        if(this.currentTest.state !== "passed"){
         const png = await browser.takeScreenshot();
         allure.createAttachment('Screenshot', new Buffer(png, 'base64'), 'image/png');
+        }
     })
 
-});
+});*/
 
-xdescribe('Testing New Screen-Shop online', function () {
+describe('Testing New Screen-Online Shop', function () {
 
-    /*it('Should be able to navigate to online shop page', async function () {
+    it('Verify user is able to navigate to online shop page', async function () {
         await home.clickOnlineShopMenu();
-    });*/
+    });
 
-    xit('Verify titles Food and Treats on shop online screen', async function () {
-        expect(await onlineShop.getFoodTitleText()).to.equal("Food");
-        expect(await onlineShop.getTreatsTitleText()).to.equal("Treats");
-
+    it('Verify title of online shop screen', async function () {
+        expect(await onlineShop.getPageTitleText()).to.equal("Foods / Treats");
     });
 
     xit('Validate the item names & rates are displayed in Foods', async function () {
@@ -47,8 +47,10 @@ xdescribe('Testing New Screen-Shop online', function () {
     });
 
     afterEach(async function () {
+        if(this.currentTest.state !== "passed"){
         const png = await browser.takeScreenshot();
         allure.createAttachment('Screenshot', new Buffer(png, 'base64'), 'image/png');
+        }
     })
 
 });
@@ -86,8 +88,10 @@ xdescribe('Quantity and Add to cart button', function () {
      });
 
     afterEach(async function () {
+        if(this.currentTest.state !== "passed"){
         const png = await browser.takeScreenshot();
         allure.createAttachment('Screenshot', new Buffer(png, 'base64'), 'image/png');
+        }
     })
 
 

@@ -7,15 +7,18 @@ exports.config = {
     SELENIUM_PROMISE_MANAGER: false,
     capabilities:
     {
-        browserName: 'chrome',
-        chromeOptions: {
-            args: ["--incognito"],
+//         browserName: 'chrome',
+//         chromeOptions: {
+//             args: ["--incognito"],
+             browserName: 'firefox',
+                'moz:firefoxOptions': {
+                 args: [ "--headless" ],
         }
     },
 
 
     suites: {
-        mochaTest: ['./tests/home.js',
+        mochaTest: ['./tests/*.js',
                    // './tests/onlineShop.js'
                 
                 ]
@@ -23,7 +26,7 @@ exports.config = {
     onPrepare: async function () {
         await browser.driver.manage().window().maximize();
     },
-
+*
     mochaOpts: {
         reporter: 'mocha-allure-reporter',
         timeout: 100000

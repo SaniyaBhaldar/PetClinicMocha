@@ -6,22 +6,21 @@ exports.config = {
 
     SELENIUM_PROMISE_MANAGER: false,
     capabilities:
-    {
-//         browserName: 'chrome',
-//         chromeOptions: {
-//             args: ["--incognito"],
-             browserName: 'firefox',
-                'moz:firefoxOptions': {
-                 args: [ "--headless" ],
-        }
-    },
+  {
+        // browserName: 'chrome',
+        // chromeoptions: {
+        //   args: ["--incognito"],
+        // } 
+     browserName: 'firefox',
+
+  'moz:firefoxOptions': {
+     args: [ "--headless" ]
+   }
+  },
 
 
     suites: {
-        mochaTest: ['./tests/*.js',
-                   // './tests/onlineShop.js'
-                
-                ]
+        mochaTest: './test/*.js'
     },
     onPrepare: async function () {
         await browser.driver.manage().window().maximize();

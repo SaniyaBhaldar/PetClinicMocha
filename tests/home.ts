@@ -2,7 +2,6 @@ import { browser, ProtractorExpectedConditions, ExpectedConditions, by } from "p
 import { homePage } from "../pageObjects/homePage";
 import { describe, it } from 'mocha';
 import testdata from "../testData/userData";
-import { doesNotMatch } from "assert";
 
 const log = require("../logFile/logging").default;
 
@@ -42,8 +41,10 @@ describe('Verify user able to see menu on homepage', function () {
     });
 
     afterEach(async function () {
+        if(this.currentTest.state !== "passed"){
         const png = await browser.takeScreenshot();
         allure.createAttachment('Screenshot', new Buffer(png, 'base64'), 'image/png');
+        }
     })
 
 });

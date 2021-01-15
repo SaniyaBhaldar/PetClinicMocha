@@ -1,11 +1,8 @@
 import { ElementFinder, element, by, ElementArrayFinder, browser, ExpectedConditions } from "protractor";
 
-//var expCondition = ExpectedConditions;
-
 export class onlineShopPage {
 
-    private onlineShopMenu = element(by.css("[routerlink='/onlineShop']"));
-    private pageTitle = element(by.css(".container-fluid .xd-container h2"));
+    private pageTitle = element(by.css(".page .page-title"));
 
     async getPageTitleText() {
         return await this.pageTitle.getText();
